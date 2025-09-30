@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeCoders - Where Developers Create Magic</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Purple shades */
+            --purple-darker: #7c3aed;
+            --primary-purple: #8b5cf6;
+            --purple-light: #a78bfa;
+            --purple-lighter: #c084fc;
+            --purple-darkest: #2d1b4e;
+
+            /* Dark backgrounds */
+            --dark-bg: #0a0a1f;
+            --dark-card: #1a1a2e;
+            --dark-card-60: rgba(26, 26, 46, 0.6);
+            --dark-card-80: rgba(26, 26, 46, 0.8);
+
+            /* White variations */
+            --white: #ffffff;
+            --white-90: rgba(255, 255, 255, 0.9);
+            --white-80: rgba(255, 255, 255, 0.8);
+            --white-70: rgba(255, 255, 255, 0.7);
+
+            /* Purple with opacity */
+            --purple-10: rgba(139, 92, 246, 0.1);
+            --purple-30: rgba(139, 92, 246, 0.3);
+            --purple-40: rgba(139, 92, 246, 0.4);
+
+            /* Code syntax colors */
+            --code-comment: #6366f1;
+            --code-keyword: #c084fc;
+            --code-string: #34d399;
+            --code-property: #60a5fa;
+
+            /* Gradients */
+            --gradient-bg: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-card) 50%, var(--purple-darkest) 100%);
+            --gradient-text: linear-gradient(135deg, var(--purple-light) 0%, var(--purple-lighter) 100%);
+            --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--purple-light) 100%);
+            --gradient-hover: linear-gradient(135deg, var(--purple-darker) 0%, var(--primary-purple) 100%);
+        }
+
+        body {
+            background: var(--gradient-bg);
+            min-height: 100vh;
+            color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .navbar {
+            background: transparent;
+            padding: 1.5rem 0;
+        }
+
+        .navbar-brand .navbar-item {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-brand .navbar-item:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .navbar-menu {
+            background: transparent;
+        }
+
+        .navbar-menu .navbar-item {
+            color: var(--white-80);
+            transition: color 0.3s;
+        }
+
+        .navbar-menu .navbar-item:hover {
+            color: var(--white);
+            background: transparent;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-purple);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+
+        .hero-section {
+            padding: 4rem 1.5rem 6rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title .magic {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--white-70);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--white-70);
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .button.is-primary {
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            padding: 1.5rem 2.5rem;
+            height: auto;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button.is-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--purple-40);
+            background: var(--gradient-hover);
+        }
+
+        .button.is-dark {
+            background: var(--dark-card-80);
+            border: 2px solid var(--purple-30);
+            color: white;
+            font-size: 1.1rem;
+            padding: 1.5rem 2.5rem;
+            height: auto;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .button.is-dark:hover {
+            border-color: var(--primary-purple);
+            background: var(--purple-10);
+            transform: translateY(-2px);
+        }
+
+        .code-preview {
+            background: var(--dark-card-60);
+            border: 1px solid var(--purple-30);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem auto 0;
+            max-width: 600px;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            backdrop-filter: blur(10px);
+        }
+
+        .code-comment {
+            color: var(--code-comment);
+        }
+
+        .code-keyword {
+            color: var(--code-keyword);
+        }
+
+        .code-string {
+            color: var(--code-string);
+        }
+
+        .code-property {
+            color: var(--code-property);
+        }
+
+        .login-button {
+            color: var(--white-90);
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .login-button:hover {
+            color: var(--white);
+            background: transparent;
+        }
+
+        .join-header-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .join-header-button:hover {
+            background: var(--gradient-hover);
+            color: white;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stats-section {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <span class="logo-icon">
+                        <i class="fas fa-code"></i>
+                    </span>
+                    <span>vibe<span style="color: var(--primary-purple)">coders</span></span>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-start">
+                </div>
+
+                <div class="navbar-end">
+                    <a class="navbar-item">About</a>
+                    <a class="navbar-item">Features</a>
+                    <a class="navbar-item">Community</a>
+                    <a class="navbar-item">Contact</a>
+                    <a class="navbar-item login-button">Login</a>
+                    <div class="navbar-item">
+                        <button class="button join-header-button">
+                            Join Community
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">
+                Where Developers<br>
+                <span class="magic">Create Magic</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Join Vibe Coders - A modern community where passionate developers
+                connect, collaborate, and build the next generation of digital
+                experiences.
+            </p>
+
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <i class="fas fa-users stat-icon"></i>
+                        500+
+                    </div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <i class="fas fa-code stat-icon"></i>
+                        50+
+                    </div>
+                    <div class="stat-label">Projects Built</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <i class="fas fa-star stat-icon"></i>
+                        24/7
+                    </div>
+                    <div class="stat-label">Community Support</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <button class="button is-primary is-large">
+                    Join the Community
+                    <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                </button>
+                <button class="button is-dark is-large">
+                    Explore Projects
+                </button>
+            </div>
+
+            <div class="code-preview">
+                <div><span class="code-comment">// Welcome to Vibe Coders</span></div>
+                <div><span class="code-keyword">const</span> <span class="code-property">community</span> = {</div>
+                <div>&nbsp;&nbsp;<span class="code-property">passion</span>: <span class="code-string">'coding'</span>,</div>
+                <div>&nbsp;&nbsp;<span class="code-property">vibe</span>: <span class="code-string">'immaculate'</span>,</div>
+                <div>&nbsp;&nbsp;<span class="code-property">collaboration</span>: <span class="code-string">'true'</span>,</div>
+                <div>&nbsp;&nbsp;<span class="code-property">nextLevel</span>: <span class="code-keyword">async</span> () =&gt; {</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return await</span> <span class="code-property">buildAmazing</span>();</div>
+                <div>&nbsp;&nbsp;}</div>
+                <div>};</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
